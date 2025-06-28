@@ -1,7 +1,7 @@
 {
   "name": "ecolearn-auth",
   "version": "1.0.0",
-  "description": "🔐 EcoLearn Authentication - Green business intelligence authentication system untuk platform pembelajaran digital business",
+  "description": "EcoLearn Authentication System",
   "type": "module",
   "main": "index.html",
   "scripts": {
@@ -17,14 +17,7 @@
   "keywords": [
     "ecolearn",
     "authentication",
-    "green-business-intelligence",
-    "education",
-    "micro-frontend",
-    "vanilla-js",
-    "carbon-tracking",
-    "sustainability",
-    "digital-business",
-    "akademi-digital-bandung"
+    "micro-frontend"
   ],
   "author": {
     "name": "Akademi Digital Bandung",
@@ -62,44 +55,6 @@
   },
   "files": [
     "index.html",
-    "assets/",
-    "README.md"
-  ],
-  "eco": {
-    "carbonBudget": "0.5g",
-    "performanceTarget": "< 2s",
-    "bundleSize": "< 50KB",
-    "dependencies": {
-      "shared": "https://adbecolearn.github.io/ecolearn-shared/"
-    }
-  },
-  "features": {
-    "authentication": {
-      "login": true,
-      "register": true,
-      "forgotPassword": true,
-      "passwordStrength": true,
-      "realTimeValidation": true
-    },
-    "greenComputing": {
-      "carbonTracking": true,
-      "performanceMonitoring": true,
-      "energyOptimization": true
-    },
-    "accessibility": {
-      "keyboardNavigation": true,
-      "screenReader": true,
-      "highContrast": true,
-      "reducedMotion": true
-    },
-    "responsive": {
-      "mobile": true,
-      "tablet": true,
-      "desktop": true
-    }
-  },
-  "funding": {
-    "type": "institutional",
-    "url": "https://digitalbdg.ac.id/research/ecolearn"
-  }
+    "assets/"
+  ]
 }

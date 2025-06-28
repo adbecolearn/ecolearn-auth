@@ -121,6 +121,10 @@ docs/build/
 *.bak
 *.backup
 
-# Sensitive information
+# Documentation files (internal use only)
+README.md
 CONTRIBUTING.md
 SETUP.md
+GITHUB_SETUP.md
+*.md
+!package.json
