@@ -1,10 +1,10 @@
 # 🔐 EcoLearn Authentication
 
-> Green computing authentication system untuk platform pembelajaran digital business di Akademi Digital Bandung.
+> Green business intelligence authentication system untuk platform pembelajaran digital business di Akademi Digital Bandung.
 
 ## 🎯 **Overview**
 
-EcoLearn Authentication adalah micro frontend untuk sistem autentikasi yang mengutamakan green computing dan sustainability. Dirancang khusus untuk penelitian Agentic AI dalam pembelajaran Digital Business dengan 300 mahasiswa.
+EcoLearn Authentication adalah micro frontend untuk sistem autentikasi yang mengutamakan green business intelligence dan sustainability. Dirancang khusus untuk penelitian Agentic AI dalam pembelajaran Digital Business dengan 300 mahasiswa.
 
 ## 🌱 **Green Computing Features**
 

@@ -1,7 +1,7 @@
 {
   "name": "ecolearn-auth",
   "version": "1.0.0",
-  "description": "🔐 EcoLearn Authentication - Green computing authentication system untuk platform pembelajaran digital business",
+  "description": "🔐 EcoLearn Authentication - Green business intelligence authentication system untuk platform pembelajaran digital business",
   "type": "module",
   "main": "index.html",
   "scripts": {
@@ -17,7 +17,7 @@
   "keywords": [
     "ecolearn",
     "authentication",
-    "green-computing",
+    "green-business-intelligence",
     "education",
     "micro-frontend",
     "vanilla-js",
