@@ -98,7 +98,7 @@ body {
 }
 
 .logo {
-    max-width: 120px;
+    max-width: 200px;
     height: auto;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
@@ -663,6 +663,10 @@ body {
         position: static;
         margin: var(--eco-space-2) auto var(--eco-space-4);
         width: fit-content;
+    }
+
+    .logo {
+        max-width: 160px;
     }
 }
 
