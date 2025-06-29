@@ -374,23 +374,17 @@ class AuthApp {
         });
         
         try {
-            const response = await apiService.post('/v1/auth/forgot-password', {
-                email: data.email
-            });
-            
-            if (response.success) {
-                this.showMessage('success', 'Password reset instructions sent to your email.');
-                
-                // Switch to login tab after delay
-                setTimeout(() => {
-                    this.switchTab('login');
-                }, 3000);
-                
-            } else {
-                this.showMessage('error', response.message);
-                this.setButtonLoading(submitButton, false);
-            }
-            
+            // For now, show message that feature is not implemented
+            // Backend doesn't have forgot password endpoint yet
+            this.showMessage('info', 'Password reset feature will be available soon. Please contact admin for assistance.');
+
+            // Switch to login tab after delay
+            setTimeout(() => {
+                this.switchTab('login');
+            }, 3000);
+
+            this.setButtonLoading(submitButton, false);
+
         } catch (error) {
             console.error('Forgot password error:', error);
             this.showMessage('error', 'Network error. Please try again.');
