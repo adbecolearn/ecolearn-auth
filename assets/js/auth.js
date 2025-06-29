@@ -4,20 +4,12 @@
  */
 
 // Import EcoLearn Shared Libraries
-import { 
-    initEcoLearn, 
-    carbonTracker, 
-    apiService, 
-    authUtils, 
-    config 
+import {
+    carbonTracker,
+    authUtils
 } from 'https://adbecolearn.github.io/ecolearn-shared/index.js';
 
-// Initialize EcoLearn
-const ecolearn = initEcoLearn({
-    carbonTracking: true,
-    performanceMonitoring: true,
-    debugMode: config.isDevelopment()
-});
+console.log('📦 Shared libraries imported successfully');
 
 // Authentication App Class
 class AuthApp {
@@ -59,6 +51,13 @@ class AuthApp {
         this.forms.login = document.getElementById('loginForm');
         this.forms.register = document.getElementById('registerForm');
         this.forms.forgot = document.getElementById('forgotForm');
+
+        // Debug: Check if forms are found
+        console.log('🔍 DOM Setup:', {
+            loginForm: !!this.forms.login,
+            registerForm: !!this.forms.register,
+            forgotForm: !!this.forms.forgot
+        });
         
         // Tabs
         this.tabs = document.querySelectorAll('.auth-tab');
@@ -87,13 +86,19 @@ class AuthApp {
 
         // Form submissions
         if (this.forms.login) {
-            this.forms.login.addEventListener('submit', (e) => this.handleLogin(e));
+            this.forms.login.addEventListener('submit', (e) => {
+                console.log('🔐 Login form submitted!');
+                this.handleLogin(e);
+            });
+            console.log('✅ Login form event listener attached');
+        } else {
+            console.error('❌ Login form not found!');
         }
-        
+
         if (this.forms.register) {
             this.forms.register.addEventListener('submit', (e) => this.handleRegister(e));
         }
-        
+
         if (this.forms.forgot) {
             this.forms.forgot.addEventListener('submit', (e) => this.handleForgotPassword(e));
         }
@@ -244,10 +249,13 @@ class AuthApp {
      */
     async handleLogin(e) {
         e.preventDefault();
-        
+        console.log('🚀 handleLogin called');
+
         const form = e.target;
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
+
+        console.log('📝 Login data:', { email: data.email, hasPassword: !!data.password });
         
         // Validate form
         if (!this.validateForm(form)) {
