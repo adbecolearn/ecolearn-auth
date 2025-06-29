@@ -121,7 +121,10 @@ class StandaloneAuthApp {
             
             if (response.success) {
                 console.log('✅ Login successful!');
-                
+                console.log('📊 Full response data:', response.data);
+                console.log('👤 User data:', response.data.user);
+                console.log('🎭 User role:', response.data.user.role);
+
                 // Store auth data
                 if (response.data && response.data.token) {
                     localStorage.setItem('ecolearn_token', response.data.token);
@@ -135,13 +138,24 @@ class StandaloneAuthApp {
                 // Redirect based on role
                 setTimeout(() => {
                     const role = response.data.user.role;
-                    let redirectUrl = '/ecolearn-student/';
-                    
-                    if (role === 'educator') redirectUrl = '/ecolearn-educator/';
-                    if (role === 'admin') redirectUrl = '/ecolearn-admin/';
-                    
-                    console.log(`🔗 Redirecting to: ${redirectUrl}`);
-                    window.location.href = redirectUrl;
+                    let redirectUrl = 'https://adbecolearn.github.io/ecolearn-student/';
+
+                    if (role === 'educator') redirectUrl = 'https://adbecolearn.github.io/ecolearn-educator/';
+                    if (role === 'admin') redirectUrl = 'https://adbecolearn.github.io/ecolearn-admin/';
+
+                    console.log(`🔗 Redirecting to: ${redirectUrl} for role: ${role}`);
+                    console.log(`📍 Current location: ${window.location.href}`);
+                    console.log(`🎯 About to redirect...`);
+
+                    // Try multiple redirect methods
+                    try {
+                        window.location.href = redirectUrl;
+                        console.log(`✅ window.location.href set to: ${redirectUrl}`);
+                    } catch (error) {
+                        console.error(`❌ Redirect error:`, error);
+                        // Fallback method
+                        window.location.replace(redirectUrl);
+                    }
                 }, 1500);
                 
             } else {
