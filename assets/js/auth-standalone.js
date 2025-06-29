@@ -199,11 +199,67 @@ class StandaloneAuthApp {
     }
 }
 
+// Test function to try common email formats
+async function testCommonEmails() {
+    console.log('🧪 Testing common email formats...');
+
+    const testEmails = [
+        'admin@digitalbdg.ac.id',
+        'adb001@digitalbdg.ac.id',
+        'adb002@digitalbdg.ac.id',
+        'adb003@digitalbdg.ac.id',
+        'stu001@digitalbdg.ac.id',
+        'student001@digitalbdg.ac.id'
+    ];
+
+    const testPasswords = [
+        'password123',
+        'Password123',
+        'admin123',
+        'student123',
+        'Student2024!',
+        'EcoLearn2024!'
+    ];
+
+    for (const email of testEmails) {
+        for (const password of testPasswords) {
+            try {
+                console.log(`🔍 Testing: ${email} / ${password}`);
+                const response = await login(email, password);
+                if (response.success) {
+                    console.log(`✅ FOUND VALID CREDENTIALS: ${email} / ${password}`);
+                    return { email, password };
+                }
+            } catch (error) {
+                // Continue testing
+            }
+        }
+    }
+
+    console.log('❌ No valid credentials found in test set');
+    return null;
+}
+
+// Make test function available globally
+window.testCommonEmails = testCommonEmails;
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         console.log('📄 DOM loaded, initializing auth app');
         window.standaloneAuth = new StandaloneAuthApp();
+
+        // Add test button
+        setTimeout(() => {
+            const container = document.querySelector('.auth-container');
+            if (container) {
+                const testBtn = document.createElement('button');
+                testBtn.textContent = '🧪 Test Common Credentials';
+                testBtn.style.cssText = 'margin: 10px; padding: 10px; background: #f0f0f0; border: 1px solid #ccc; cursor: pointer;';
+                testBtn.onclick = testCommonEmails;
+                container.appendChild(testBtn);
+            }
+        }, 1000);
     });
 } else {
     console.log('📄 DOM already loaded, initializing auth app');
